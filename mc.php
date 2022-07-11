@@ -1,9 +1,11 @@
 <?php
 
 // pull in composer dependencies for mailchimp
-require_once '/home/rday/bin/rvrn/vendor/autoload.php';
-include( '/home/rday/bin/rvrn/vendor/drewm/mailchimp-api/src/MailChimp.php');
+require_once 'vendor/autoload.php';
+include( 'vendor/drewm/mailchimp-api/src/MailChimp.php');
 use \DrewM\MailChimp\MailChimp;
+require __DIR__ . '/vendor/autoload.php';
+
 
 // dnf install php-soap
 
@@ -11,6 +13,8 @@ use \DrewM\MailChimp\MailChimp;
 # log in to etapestry via soap
 
 # etap variables
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 $databaseId = $_ENV['ETAP_DATABASE_ID'];
 $apiKey     = $_ENV['ETAP_API_KEY'];
 #$endpoint = "https://sna.etapestry.com/v3messaging/service?WSDL";
