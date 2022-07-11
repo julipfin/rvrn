@@ -3,9 +3,9 @@
 require 'airtable-libs.php';
 
 // pull in composer dependencies for mailchimp
-require_once '/home/rday/bin/rvrn/vendor/autoload.php';
-include( '/home/rday/bin/rvrn/vendor/drewm/mailchimp-api/src/MailChimp.php');
-include( '/home/rday/bin/rvrn/vendor/drewm/mailchimp-api/src/Batch.php');
+require_once 'vendor/autoload.php';
+include( 'vendor/drewm/mailchimp-api/src/MailChimp.php');
+include( 'vendor/drewm/mailchimp-api/src/Batch.php');
 use \DrewM\MailChimp\MailChimp;
 
 // pull in dependencies for etapestry/soap
