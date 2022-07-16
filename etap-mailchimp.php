@@ -136,7 +136,7 @@ if ($enroll_with_mailchimp) {
       if (email_exists_in_airtable($person->email)) {
         print_r("Email ".$person->email." is already in airtable.\n");
       } else {
-        print_r("Adding email".$person->email." to airtable.\n");
+        print_r("Adding email ".$person->email." to airtable.\n");
         add_to_airtable($person);
       } 
     } else {
