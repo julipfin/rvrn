@@ -1,0 +1,15 @@
+graph TD
+    A[Query new accounts in eTapestry]
+    C{each new account}
+    D[enroll in mailchimp]
+    E[do not enroll in mailchimp]
+    F{test if in airtable}
+    G[do not add to airtable]
+    H[add to airtable]
+    A-->C
+    C -->|email present?| D
+    C -->|email absent?| E
+    D -->|already in mailchimp?| E
+    D --> F
+    F -->|email present?| G
+    F -->|email absent?| H
