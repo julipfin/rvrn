@@ -66,7 +66,6 @@ function add_to_airtable($person) {
   $airtable_api = $_ENV['AIRTABLE_API_KEY'];
   $base_id      = $_ENV['AIRTABLE_BASE_ID'];
   $table_id     = $_ENV['AIRTABLE_TABLE_ID'];
-  #$person = new stdClass();
   date_default_timezone_set('America/Los_Angeles');
   $mydate = date("Y-m-d");
   $curl = "curl -X POST https://api.airtable.com/v0/$base_id/New%20eTap%20Accounts%20%7C%202022";
@@ -75,6 +74,7 @@ function add_to_airtable($person) {
   $airtable_array = array();
 
   $testperson = new stdClass();
+  $testperson->fields = new stdClass();
   $testperson->fields->{'Last name'} = $person->lastName;
   $testperson->fields->{'First name'} = $person->firstName;
   $testperson->fields->{'Date account added'} = $mydate;
@@ -101,8 +101,8 @@ function add_to_airtable($person) {
   $result = curl_exec($ch);
   curl_close($ch);
   $decode = json_decode($result, true);
-  $myerror = $decode['error'];
-  if ($myerror) {
+  if (isset($decode['error'])){
+    $myerror = $decode['error'];
     echo "We encountered an error from Airtable\n";
     echo($myerror['type'] . "\n");
     return true;
