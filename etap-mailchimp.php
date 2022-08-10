@@ -119,7 +119,7 @@ if ($enroll_with_mailchimp) {
     #print_r("email: ".$person->email."\n");
     #print_r("\n");
     if ($person->email == "") { 
-      print_r("Not enrolling ".$person->firstName." ".$person->lastName." due to missing email\n");
+      print_r("Not enrolling ".$person->accountName." due to missing email\n");
       continue;
     }
     $mc_result = $MailChimp->post("lists/$list_id/members", [
