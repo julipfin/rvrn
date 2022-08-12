@@ -12,13 +12,15 @@ require __DIR__ . '/vendor/autoload.php';
 // Set login details and initial endpoint
 # log in to etapestry via soap
 
-# etap variables
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
-$databaseId = $_ENV['ETAP_DATABASE_ID'];
-$apiKey     = $_ENV['ETAP_API_KEY'];
+
+# etap variables
+#$databaseId = $_ENV['ETAP_DATABASE_ID'];
+#$apiKey     = $_ENV['ETAP_API_KEY'];
 #$endpoint = "https://sna.etapestry.com/v3messaging/service?WSDL";
-$endpoint = "https://bos.etapestry.com/v3messaging/service?WSDL";
+#$endpoint = "https://bos.etapestry.com/v3messaging/service?WSDL";
+
 # mailchimp variables
 $dc      = $_ENV['MAILCHIMP_DC'];
 $apikey  = $_ENV['MAILCHIMP_API_KEY'];
@@ -34,4 +36,16 @@ $result = $MailChimp->post("lists/$list_id/members", [
   'merge_fields' => ['FNAME'=>'Ryan', 'LNAME'=>'Day'],
 ]);
 print_r($result);
+
+$title = $result['title'];
+$status = $result['status'];
+$detail = $result['detail'];
+
+print_r("This test should succeed with login to mailchimp and return\n");
+print_r("an error for a user that cannot be subscribed\n");
+if ($status == "400")
+  print_r("Test successful\n");
+else
+  print_r("Test failed\n");
+
 ?>
