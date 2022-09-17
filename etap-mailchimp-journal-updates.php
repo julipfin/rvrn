@@ -142,7 +142,7 @@ if ($enroll_with_mailchimp) {
       }
     } else {
       #echo $MailChimp->getLastError();
-      print_r("Already enrolled ".$person->email." no action taken\n");
+      print_r("Already enrolled ".$person->email." in mailchimp; not added to airtable.\n");
     }
   }
 }
