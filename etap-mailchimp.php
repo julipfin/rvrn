@@ -33,9 +33,15 @@ if (is_soap_fault($nsc)) {
 
 // Invoke login method
 
-#echo "Calling login method...";
-$newEndpoint = $nsc->__soapCall("apiKeyLogin", array($databaseId, $apiKey));
-#echo "Done\n";
+try {
+  #echo "Calling login method...";
+  $newEndpoint = $nsc->__soapCall("apiKeyLogin", array($databaseId, $apiKey));
+  #echo "Done\n";
+} catch (Exception $e) {
+  echo "Caught exception: ", $e->getMessage(), "\n";
+  echo "Could not log in to E-tapestry.  Giving up.\n";
+  exit;
+}
 
 // Did we login?
 if (is_soap_fault($newEndpoint)) {
