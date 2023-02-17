@@ -13,7 +13,7 @@ function email_exists_in_airtable($email_to_find = "") {
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
   $dotenv->load();
 
-  $airtable_api = $_ENV['AIRTABLE_API_KEY'];
+  $airtable_api = $_ENV['AIRTABLE_ACCESS_TOKEN'];
   $base_id      = $_ENV['AIRTABLE_BASE_ID'];
   $table_id     = $_ENV['AIRTABLE_TABLE_ID'];
 
@@ -63,7 +63,7 @@ function add_to_airtable($person) {
 
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
   $dotenv->load();
-  $airtable_api = $_ENV['AIRTABLE_API_KEY'];
+  $airtable_api = $_ENV['AIRTABLE_ACCESS_TOKEN'];
   $base_id      = $_ENV['AIRTABLE_BASE_ID'];
   $table_id     = $_ENV['AIRTABLE_TABLE_ID'];
   date_default_timezone_set('America/Los_Angeles');
@@ -127,7 +127,7 @@ function add_to_airtable($person) {
 function get_airtable_list($list,$view) {
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
   $dotenv->load();
-  $airtable_api = $_ENV['AIRTABLE_API_KEY'];
+  $airtable_api = $_ENV['AIRTABLE_ACCESS_TOKEN'];
   $base_id      = $_ENV['AIRTABLE_BASE_ID'];
 
   $mylist = rawurlencode($list);
