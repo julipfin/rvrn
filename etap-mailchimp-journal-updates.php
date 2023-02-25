@@ -17,8 +17,8 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 $databaseId = $_ENV['ETAP_DATABASE_ID'];
 $apiKey     = $_ENV['ETAP_API_KEY'];
-#$endpoint = "https://sna.etapestry.com/v3messaging/service?WSDL";
-$endpoint = "https://bos.etapestry.com/v3messaging/service?WSDL";
+$endpoint = "https://sna.etapestry.com/v3messaging/service?WSDL";
+#$endpoint = "https://bos.etapestry.com/v3messaging/service?WSDL";
 $debug=false;
 
 // Instantiate SoapClient
