@@ -49,11 +49,11 @@ if (is_soap_fault($newEndpoint)) {
 // environment that can only be accessed using the provided endpoint
 if ($newEndpoint != "")
 {
-  echo "New Endpoint: $newEndpoint<br><br>\n";
+  #echo "New Endpoint: $newEndpoint<br><br>\n";
   // Instantiate SoapClient with different endpoint
-  echo "Establishing Soap Client with new endpoint...";
+  #echo "Establishing Soap Client with new endpoint...";
   $nsc = new SoapClient($newEndpoint);
-  echo "Done\n";
+  #echo "Done\n";
 
   // Invoke login method
   #echo "Calling login method...";
