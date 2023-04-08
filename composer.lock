@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85c47becd47288a70314db679ea6d1f5",
+    "content-hash": "869e1e0670a64c5012c23f8a2ef45862",
     "packages": [
         {
             "name": "drewm/mailchimp-api",
@@ -429,16 +429,16 @@
         },
         {
             "name": "mailchimp/marketing",
-            "version": "3.0.75",
+            "version": "3.0.80",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mailchimp/mailchimp-marketing-php.git",
-                "reference": "759e043ecce64c2374f05fcd600b69a3d1583b8c"
+                "reference": "c1a38f7248d8de7de412418fed8dae759b9e4b97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mailchimp/mailchimp-marketing-php/zipball/759e043ecce64c2374f05fcd600b69a3d1583b8c",
-                "reference": "759e043ecce64c2374f05fcd600b69a3d1583b8c",
+                "url": "https://api.github.com/repos/mailchimp/mailchimp-marketing-php/zipball/c1a38f7248d8de7de412418fed8dae759b9e4b97",
+                "reference": "c1a38f7248d8de7de412418fed8dae759b9e4b97",
                 "shasum": ""
             },
             "require": {
@@ -477,10 +477,7 @@
                 "sdk",
                 "swagger"
             ],
-            "support": {
-                "source": "https://github.com/mailchimp/mailchimp-marketing-php/tree/v3.0.75"
-            },
-            "time": "2022-04-14T15:25:36+00:00"
+            "time": "2022-11-02T19:19:48+00:00"
         },
         {
             "name": "phpoption/phpoption",

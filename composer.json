@@ -1,6 +1,6 @@
 {
   "require": {
-    "mailchimp/marketing": "*",
+    "mailchimp/marketing": "^3.0",
     "vlucas/phpdotenv": "*",
     "drewm/mailchimp-api": "^2.5"
   }
