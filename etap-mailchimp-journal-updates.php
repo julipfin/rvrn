@@ -91,7 +91,15 @@ $request["sortOptions"] = array();
 $request["clearCache"] = false;
 
 #print_r("Run etapestry query for new accounts\n");
-$accounts = $nsc->__soapCall("getExistingQueryResults", array($request));
+try {
+  $accounts = $nsc->__soapCall("getExistingQueryResults", array($request));
+} catch (Exception $e) {
+  echo "Caught exception: ", $e->getMessage(), "\n";
+  echo "Could not run query in E-tapestry.\n";
+  echo "Does category ", $categoryName," exist?\n";
+  echo "Does query ", $queryName," exist?\n";
+  exit;
+}
 
 print_r("Found ".$accounts->count." etapestry account(s) with a journal entry \"RVRN news updates sign up\"\n");
 if ($debug) {
