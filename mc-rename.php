@@ -47,10 +47,10 @@ print_r($response);
 # the tag I care about is church-society
 
 # search for members with a given first name
-print_r("List members with church in first name\n");
+print_r("List members with informal group in first name\n");
 # fields to include in response
 #$fields = array('id','full_name');
-$result = $MailChimp->searchMembers->search("church");
+$result = $MailChimp->searchMembers->search("informal group");
 #var_dump($result);
 #exit;
 $members = $result->full_search->members;

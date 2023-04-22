@@ -91,7 +91,15 @@ $request["clearCache"] = false;
 
 print_r("Exercising etapestry query for new accounts\n");
 print_r("but taking no action with mailchimp or airtable\n");
-$accounts = $nsc->__soapCall("getExistingQueryResults", array($request));
+try {
+  $accounts = $nsc->__soapCall("getExistingQueryResults", array($request));
+} catch (Exception $e) {
+  echo "Caught exception: ", $e->getMessage(), "\n";
+  echo "Could not run query in E-tapestry.\n";
+  echo "Does category ", $categoryName," exist?\n";
+  echo "Does query ", $queryName," exist?\n";
+  exit;
+}
 
 print_r("Found ".$accounts->count." new eTapestry account(s)\n");
 if ($debug) {
