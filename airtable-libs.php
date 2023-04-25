@@ -76,7 +76,7 @@ function add_to_airtable($person) {
   $testperson = new stdClass();
   $testperson->fields = new stdClass();
   $testperson->fields->{'Last name'} = $person->lastName;
-  $testperson->fields->{'First name'} = $person->firstName;
+  $testperson->fields->{'First name'} = $person->shortSalutation;
   $testperson->fields->{'Date account added'} = $mydate;
   $testperson->fields->{'email address'} = $person->email;
   $testperson->fields->{'Source'}    = "API triggered by new account";
