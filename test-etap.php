@@ -79,7 +79,7 @@ if ($get_campaign_list) {
 
 // run a query
 // the query must be defined in etapestry
-$categoryName = "MailChimp Integration DO NOT MODIFY";
+$categoryName = "Mailchimp and Airtable Integrations DO NOT MODIFY";
 $queryName = "New Constituents_RYAN";
 $request = array();
 $request["start"] = 0;
@@ -114,6 +114,7 @@ if ($test_etap) {
     print_r("firstname: ".$person->firstName."\n");
     print_r("lastname: ".$person->lastName."\n");
     print_r("sortname: ".$person->sortName."\n");
+    print_r("shortSalutation: ".$person->shortSalutation."\n");
     print_r("email: ".$person->email."\n");
     print_r("\n");
     

@@ -80,7 +80,7 @@ if ($get_campaign_list) {
 
 // run a query
 // the query must be defined in etapestry
-$categoryName = "MailChimp Integration DO NOT MODIFY";
+$categoryName = "Mailchimp and Airtable Integrations DO NOT MODIFY";
 $queryName = "News Update Sign Ups_RYAN";
 $request = array();
 $request["start"] = 0;
@@ -135,7 +135,7 @@ if ($enroll_with_mailchimp) {
       'email_address' => $person->email,
       'status' => 'subscribed',
       'merge_fields' => 
-        ['FNAME'  => $person->firstName, 
+        ['FNAME'  => $person->shortSalutation,
          'LNAME'  => $person->lastName,
          'MMERGE3'=> $person->id],
       ]);
