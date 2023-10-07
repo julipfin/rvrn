@@ -101,7 +101,7 @@ try {
   exit;
 }
 
-print_r("Found ".$accounts->count." etapestry account(s) with a journal entry \"RVRN news updates sign up\"\n");
+print_r("Found ".$accounts->count." etapestry account(s) with a journal entry \"news updates sign up\"\n");
 if ($debug) {
   print_r($accounts);
 }
