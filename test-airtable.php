@@ -48,14 +48,22 @@ $get_list = true;
 if ($get_list) {
   $list = "New eTap Accounts | 2022";
   $view = "All New Accounts";
-  echo("Asking airtable for $list, $view\n");
+  echo("Asking airtable for list: $list, view: $view\n");
   $result = get_airtable_list($list,$view);
   echo ("Got some results\n");
-  echo ("count of results: ".count($result->{"records"})."\n");
-  foreach ($result->{"records"} as $person) {
-    echo ("email: ".$person->{"fields"}->{"email address"}."\n");
+   var_dump($result);
+  if (property_exists($result, 'error')) {
+    echo ("got an error\n");
+    echo ("it says this:\n");
+    var_dump($result->{"error"});
+  } else {
+    if (property_exists($result, 'records')) {
+      echo ("count of results: ".count($result->{"records"})."\n");
+      foreach ($result->{"records"} as $person) {
+        echo ("email: ".$person->{"fields"}->{"email address"}."\n");
+      }
+    }
   }
-  var_dump($result);
 }
 
 $handle_airtable_response = false;
