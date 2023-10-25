@@ -46,7 +46,7 @@ if ($add_airtable_record) {
 
 $get_list = true;
 if ($get_list) {
-  $list = "New eTap Accounts | 2022";
+  $list = "New eTap Accounts";
   $view = "All New Accounts";
   echo("Asking airtable for list: $list, view: $view\n");
   $result = get_airtable_list($list,$view);

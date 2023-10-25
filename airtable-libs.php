@@ -21,7 +21,7 @@ function email_exists_in_airtable($email_to_find = "") {
   #echo "Looking for $email_to_find\n";
 
   # search for an exact match on email in airtable
-  $curl_base = "https://api.airtable.com/v0/$base_id/New%20eTap%20Accounts%20%7C%202022?maxRecords=3&view=All%20New%20Accounts";
+  $curl_base = "https://api.airtable.com/v0/$base_id/New%20eTap%20Accounts?maxRecords=3&view=All%20New%20Accounts";
   $curl_return_fields = "fields%5B%5D=email%20address";
   $curl_filter = "filterByFormula=%7Bemail%20address%7D%20%3d%20%27$email_to_find%27";
   $curl_url = $curl_base . "&" . $curl_return_fields . "&" . $curl_filter;
@@ -59,7 +59,7 @@ function email_exists_in_airtable($email_to_find = "") {
 
 function add_to_airtable($person) {
   # convert a person object to json and add to airtable
-  # create airtable record in "welcome series base: new accounts 2022 table"
+  # create airtable record in "welcome series base: new accounts table"
 
   $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
   $dotenv->load();
@@ -68,7 +68,7 @@ function add_to_airtable($person) {
   $table_id     = $_ENV['AIRTABLE_TABLE_ID'];
   date_default_timezone_set('America/Los_Angeles');
   $mydate = date("Y-m-d");
-  $curl = "curl -X POST https://api.airtable.com/v0/$base_id/New%20eTap%20Accounts%20%7C%202022";
+  $curl = "curl -X POST https://api.airtable.com/v0/$base_id/New%20eTap%20Accounts";
   $headers = "  -H \"Authorization: Bearer $airtable_api\" -H \"Content-Type: application/json\" --data \'";
 
   $airtable_array = array();
@@ -90,7 +90,7 @@ function add_to_airtable($person) {
 
   # add to airtable
   $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, "https://api.airtable.com/v0/$base_id/New%20eTap%20Accounts%20%7C%202022");
+  curl_setopt($ch, CURLOPT_URL, "https://api.airtable.com/v0/$base_id/New%20eTap%20Accounts");
   #curl_setopt($ch, CURLOPT_HEADER, 1);
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   curl_setopt($ch, CURLOPT_POST, 1);
