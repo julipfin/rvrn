@@ -145,7 +145,7 @@ if ($enroll_with_mailchimp) {
          'MMERGE3'=> $person->id],
       ]);
     if ($MailChimp->success()) {
-      #print_r($mc_result);
+      if ($debug) { print_r($mc_result); }
       print_r("Enrolled ".$person->email." in Mail Chimp.\n");
       if (email_exists_in_airtable($person->email)) {
         print_r("Email ".$person->email." is already in airtable.\n");
@@ -154,8 +154,8 @@ if ($enroll_with_mailchimp) {
         add_to_airtable($person);
       } 
     } else {
-      #echo $MailChimp->getLastError();
-      print_r("Already enrolled ".$person->email." in mailchimp; not added to airtable\n");
+      print_r( $MailChimp->getLastError());
+      print_r("Failed to enroll ".$person->email." in mailchimp; not added to airtable\n");
     }
   }
 }
