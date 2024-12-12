@@ -37,9 +37,16 @@ $result = $MailChimp->post("lists/$list_id/members", [
 ]);
 print_r($result);
 
+print_r("\n");
+print_r($MailChimp->getLastError());
+print_r("\n");
 $title = $result['title'];
 $status = $result['status'];
 $detail = $result['detail'];
+
+if ($status == "401") {
+  print_r("Error: Unauthorized. Bad API key?\n");
+}
 
 print_r("This test should succeed with login to mailchimp and return\n");
 print_r("an error for a user that cannot be subscribed\n");
