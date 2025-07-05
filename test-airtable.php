@@ -60,7 +60,15 @@ if ($get_list) {
     if (property_exists($result, 'records')) {
       echo ("count of results: ".count($result->{"records"})."\n");
       foreach ($result->{"records"} as $person) {
-        echo ("email: ".$person->{"fields"}->{"email address"}."\n");
+        if (isset($person->{"fields"}->{"email address"})) {
+          echo ("email: ".$person->{"fields"}->{"email address"}."\n");
+        } else {
+          echo "no email in this record\n";
+        }
+        $fields = get_object_vars($person->{"fields"});
+        foreach ($fields as $key => $value) {
+          echo "debug ==== $key: $value\n";
+        }
       }
     }
   }
